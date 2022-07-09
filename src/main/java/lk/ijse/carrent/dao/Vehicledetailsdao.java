@@ -12,4 +12,11 @@ import lombok.ToString;
 
 public class Vehicledetailsdao {
 
+String VehicleID;
+String Model;
+String VehiclePhoto;
+String VehicleColor;
+double DailyPrice;
+String Mileage;
+
 }
