@@ -11,6 +11,7 @@ import lombok.ToString;
 @Data
 
 public class Employeedao {
+
 String EmployeeID;
 String Name;
 int ContactNo;
