@@ -2,6 +2,7 @@
   <dictionary name="vinde">
     <words>
       <w>billingdao</w>
+      <w>bookingdao</w>
       <w>carrent</w>
       <w>customerdao</w>
       <w>employeedao</w>
