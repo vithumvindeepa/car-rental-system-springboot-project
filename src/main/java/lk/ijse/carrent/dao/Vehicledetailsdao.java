@@ -18,5 +18,4 @@ String VehiclePhoto;
 String VehicleColor;
 double DailyPrice;
 String Mileage;
-
 }
