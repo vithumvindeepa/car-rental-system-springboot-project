@@ -10,13 +10,13 @@ import lombok.ToString;
 @ToString
 @Data
 
-public class Billingdto {
+public class EmployeeDTO {
 
-String BillID;
-String BookingID;
-String BillDate;
-double AmountBalance;
-double AdvanceAmount;
-double DamageCost;
+String EmployeeID;
+String Name;
+int ContactNo;
+String Email;
+String EmployeeType;
+double Salary;
 
 }

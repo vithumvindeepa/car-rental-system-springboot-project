@@ -10,13 +10,11 @@ import lombok.ToString;
 @ToString
 @Data
 
-public class Bookingdto {
+public class CustomerDTO {
 
-String BookingID;
-String Date;
-String PickupLocation;
-double AdvanceAmount;
-String VehiclePlateNo;
-String CustomerName;
-
+    String CustomerID;
+    String Name;
+    int ContactNo;
+    int DrivingLicenceNo;
+    String City;
 }

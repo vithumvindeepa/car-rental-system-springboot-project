@@ -10,7 +10,7 @@ import lombok.ToString;
 @ToString
 @Data
 
-public class Vehicledetailsdto {
+public class VehicledetailsDTO {
 
 String VehicleID;
 String Model;

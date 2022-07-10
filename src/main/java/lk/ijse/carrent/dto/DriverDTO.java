@@ -10,7 +10,7 @@ import lombok.ToString;
 @ToString
 @Data
 
-public class Driverdto {
+public class DriverDTO {
 
     String DriverID;
     String DriverName;
