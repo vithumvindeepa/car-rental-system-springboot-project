@@ -1,4 +1,4 @@
-package lk.ijse.carrent.dao;
+package lk.ijse.carrent.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,12 +10,13 @@ import lombok.ToString;
 @ToString
 @Data
 
-public class Driverdao {
+public class Billingdto {
 
-    String DriverID;
-    String DriverName;
-    int ContactNo;
-    String Email;
-    int DrivingLicenceNo;
+String BillID;
+String BookingID;
+String BillDate;
+double AmountBalance;
+double AdvanceAmount;
+double DamageCost;
 
 }
