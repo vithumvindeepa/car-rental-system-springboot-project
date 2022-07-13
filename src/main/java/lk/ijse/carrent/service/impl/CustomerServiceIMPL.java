@@ -43,5 +43,14 @@ public class CustomerServiceIMPL {
         }
     }
 
+    public CustomerDTO searchCustomer(String id) {
+
+        if (repo.existsById(id)){
+            return map.map(repo.findById(id).get(),CustomerDTO.class);
+        }else {
+            throw new RuntimeException("No Customer For " + id + " ..!");
+        }
+    }
+
 
 }
