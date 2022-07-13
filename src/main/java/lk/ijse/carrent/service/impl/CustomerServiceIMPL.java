@@ -25,5 +25,16 @@ public class CustomerServiceIMPL {
         }
     }
 
+    public void deleteCustomer(String id) {
+
+        if (repo.existsById(id)) {
+            repo.deleteById(id);
+        } else {
+            throw new RuntimeException("Please check the Customer ID.. No Such Customer..!");
+        }
+    }
+
+
+
 
 }
