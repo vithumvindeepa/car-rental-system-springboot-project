@@ -34,7 +34,14 @@ public class EmployeeServiceIMPL {
         }
     }
 
+    public void updateEmployee(EmployeeDTO dto) {
 
+        if (!repo.existsById(dto.getEmployeeID())) {
+            repo.save(map.map(dto, Employee.class));
+        } else {
+            throw new RuntimeException("No Such Employee To Update..! Please Check the ID!");
+        }
+    }
 
 
 
