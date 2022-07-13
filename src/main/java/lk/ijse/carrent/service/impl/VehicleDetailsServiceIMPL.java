@@ -23,5 +23,17 @@ public class VehicleDetailsServiceIMPL {
         }
     }
 
+    public void deleteVehicleDetails(String id) {
+
+        if (repo.existsById(id)) {
+            repo.deleteById(id);
+        } else {
+            throw new RuntimeException("Please check the VehicleDetails ID.. No Such VehicleDetails..!");
+        }
+    }
+
+
+
+
 
 }
