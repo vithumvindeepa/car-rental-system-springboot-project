@@ -34,7 +34,14 @@ public class DamageServiceIMPL {
         }
     }
 
+    public void updateDamage(DamageDTO dto) {
 
+        if (!repo.existsById(dto.getDamageID())) {
+            repo.save(map.map(dto, Damage.class));
+        } else {
+            throw new RuntimeException("No Such Damage To Update..! Please Check the ID!");
+        }
+    }
 
 
 
