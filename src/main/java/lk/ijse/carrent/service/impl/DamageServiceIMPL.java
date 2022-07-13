@@ -43,7 +43,14 @@ public class DamageServiceIMPL {
         }
     }
 
+    public DamageDTO searchDamage(String id) {
 
+        if (repo.existsById(id)){
+            return map.map(repo.findById(id).get(),DamageDTO.class);
+        }else {
+            throw new RuntimeException("No Damage For " + id + " ..!");
+        }
+    }
 
 
 }
