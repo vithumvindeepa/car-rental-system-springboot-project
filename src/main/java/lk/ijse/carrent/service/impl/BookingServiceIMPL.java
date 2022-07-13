@@ -5,9 +5,11 @@ import lk.ijse.carrent.entity.Billing;
 import lk.ijse.carrent.entity.Booking;
 import lk.ijse.carrent.repo.BookingRepo;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.lang.reflect.Type;
+import java.util.List;
 
 public class BookingServiceIMPL {
     @Autowired
@@ -52,5 +54,10 @@ public class BookingServiceIMPL {
         }
     }
 
+    public List<BookingDTO> getAllBooking() {
+
+        return map.map(repo.findAll(), new TypeToken<List<BookingDTO>>() {
+        }.getType());
+    }
 
 }
