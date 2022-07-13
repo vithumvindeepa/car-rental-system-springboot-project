@@ -43,7 +43,14 @@ public class DriverServiceIMPL {
         }
     }
 
+    public DriverDTO searchDriver(String id) {
 
+        if (repo.existsById(id)){
+            return map.map(repo.findById(id).get(),DriverDTO.class);
+        }else {
+            throw new RuntimeException("No Driver For " + id + " ..!");
+        }
+    }
 
 
 
