@@ -25,5 +25,17 @@ public class DriverServiceIMPL {
         }
     }
 
+    public void deleteDriver(String id) {
+
+        if (repo.existsById(id)) {
+            repo.deleteById(id);
+        } else {
+            throw new RuntimeException("Please check the Driver ID.. No Such Driver..!");
+        }
+    }
+
+
+
+
 
 }
