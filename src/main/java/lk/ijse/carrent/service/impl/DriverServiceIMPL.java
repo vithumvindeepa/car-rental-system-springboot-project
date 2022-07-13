@@ -34,7 +34,14 @@ public class DriverServiceIMPL {
         }
     }
 
+    public void updateDriver(DriverDTO dto) {
 
+        if (!repo.existsById(dto.getDriverID())) {
+            repo.save(map.map(dto, Driver.class));
+        } else {
+            throw new RuntimeException("No Such Driver To Update..! Please Check the ID!");
+        }
+    }
 
 
 
