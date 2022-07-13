@@ -32,7 +32,14 @@ public class VehicleDetailsServiceIMPL {
         }
     }
 
+    public void updateVehicleDetails(VehicledetailsDTO dto) {
 
+        if (!repo.existsById(dto.getVehicleID())) {
+            repo.save(map.map(dto, Vehicledetails.class));
+        } else {
+            throw new RuntimeException("No Such VehicleDetails To Update..! Please Check the ID!");
+        }
+    }
 
 
 
