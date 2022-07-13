@@ -23,6 +23,16 @@ public class BooklingServiceIMPL {
         }
     }
 
+    public void deleteBooking(String id) {
+
+        if (repo.existsById(id)) {
+            repo.deleteById(id);
+        } else {
+            throw new RuntimeException("Please check the Booking ID.. No Such Booking..!");
+        }
+    }
+
+
 
 
 }
