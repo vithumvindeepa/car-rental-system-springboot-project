@@ -34,7 +34,14 @@ public class CustomerServiceIMPL {
         }
     }
 
+    public void updateCustomer(CustomerDTO dto) {
 
+        if (!repo.existsById(dto.getCustomerID())) {
+            repo.save(map.map(dto, Customer.class));
+        } else {
+            throw new RuntimeException("No Such Customer To Update..! Please Check the ID!");
+        }
+    }
 
 
 }
