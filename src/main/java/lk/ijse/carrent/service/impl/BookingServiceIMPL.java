@@ -7,7 +7,7 @@ import lk.ijse.carrent.repo.BookingRepo;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class BooklingServiceIMPL {
+public class BookingServiceIMPL {
     @Autowired
     private BookingRepo repo;
 
@@ -32,7 +32,14 @@ public class BooklingServiceIMPL {
         }
     }
 
+    public void updateBooking(BookingDTO dto) {
 
+        if (!repo.existsById(dto.getBookingID())) {
+            repo.save(map.map(dto, Booking.class));
+        } else {
+            throw new RuntimeException("No Such Billing To Update..! Please Check the ID!");
+        }
+    }
 
 
 }
