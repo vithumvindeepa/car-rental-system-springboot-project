@@ -43,6 +43,15 @@ public class EmployeeServiceIMPL {
         }
     }
 
+    public EmployeeDTO searchEmployee(String id) {
+
+        if (repo.existsById(id)){
+            return map.map(repo.findById(id).get(),EmployeeDTO.class);
+        }else {
+            throw new RuntimeException("No Employee For " + id + " ..!");
+        }
+    }
+
 
 
 }
