@@ -6,7 +6,10 @@ import lk.ijse.carrent.entity.Billing;
 import lk.ijse.carrent.entity.Damage;
 import lk.ijse.carrent.repo.DamageRepo;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
 
 public class DamageServiceIMPL {
 
@@ -52,5 +55,10 @@ public class DamageServiceIMPL {
         }
     }
 
+    public List<DamageDTO> getAllDamage() {
+
+        return map.map(repo.findAll(), new TypeToken<List<DamageDTO>>() {
+        }.getType());
+    }
 
 }
