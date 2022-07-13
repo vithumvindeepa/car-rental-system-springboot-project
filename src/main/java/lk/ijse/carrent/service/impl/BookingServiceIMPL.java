@@ -1,7 +1,5 @@
 package lk.ijse.carrent.service.impl;
-import lk.ijse.carrent.dto.BillingDTO;
 import lk.ijse.carrent.dto.BookingDTO;
-import lk.ijse.carrent.entity.Billing;
 import lk.ijse.carrent.entity.Booking;
 import lk.ijse.carrent.repo.BookingRepo;
 import org.modelmapper.ModelMapper;

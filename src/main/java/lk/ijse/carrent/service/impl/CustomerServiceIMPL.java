@@ -1,12 +1,13 @@
 package lk.ijse.carrent.service.impl;
 
-import lk.ijse.carrent.dto.BillingDTO;
 import lk.ijse.carrent.dto.CustomerDTO;
-import lk.ijse.carrent.entity.Billing;
 import lk.ijse.carrent.entity.Customer;
 import lk.ijse.carrent.repo.CustomerRepo;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
 
 public class CustomerServiceIMPL {
 
@@ -52,5 +53,10 @@ public class CustomerServiceIMPL {
         }
     }
 
+    public List<CustomerDTO> getAllCustomer() {
+
+        return map.map(repo.findAll(), new TypeToken<List<CustomerDTO>>() {
+        }.getType());
+    }
 
 }
