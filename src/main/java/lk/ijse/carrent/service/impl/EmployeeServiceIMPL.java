@@ -25,5 +25,17 @@ public class EmployeeServiceIMPL {
         }
     }
 
+    public void deleteEmployee(String id) {
+
+        if (repo.existsById(id)) {
+            repo.deleteById(id);
+        } else {
+            throw new RuntimeException("Please check the Employee ID.. No Such Employee..!");
+        }
+    }
+
+
+
+
 
 }
