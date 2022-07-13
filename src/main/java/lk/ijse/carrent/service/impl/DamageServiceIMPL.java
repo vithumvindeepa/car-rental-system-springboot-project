@@ -25,5 +25,18 @@ public class DamageServiceIMPL {
         }
     }
 
+    public void deleteDamage(String id) {
+
+        if (repo.existsById(id)) {
+            repo.deleteById(id);
+        } else {
+            throw new RuntimeException("Please check the Damage ID.. No Such Damage..!");
+        }
+    }
+
+
+
+
+
 
 }
