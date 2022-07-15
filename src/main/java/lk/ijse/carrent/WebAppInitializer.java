@@ -7,11 +7,11 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[]{Webappconfig.class};
+        return new Class[]{Webrootconfig.class};
     }
 
     protected Class<?>[] getServletConfigClasses() {
-        return new Class[]{Webrootconfig.class};
+        return new Class[]{Webappconfig.class};
     }
 
     protected String[] getServletMappings() {

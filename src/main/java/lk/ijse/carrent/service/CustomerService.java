@@ -10,7 +10,7 @@ public interface CustomerService {
 
     void deleteCustomer(String id);
 
-    void updateCustomer(String dto);
+    void updateCustomer(CustomerDTO dto);
 
     CustomerDTO searchCustomer(String id);
 

@@ -17,9 +17,9 @@ import javax.persistence.Id;
 public class Customer {
 
     @Id
-    String CustomerID;
-    String Name;
-    int ContactNo;
-    int DrivingLicenceNo;
-    String City;
+   private String CustomerID;
+    private String Name;
+    private int ContactNo;
+    private int DrivingLicenceNo;
+    private String City;
 }
