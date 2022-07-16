@@ -35,6 +35,10 @@ public class BookingController {
         return new ResponceUtil(200, "update", null);
     }
 
-    
+    @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponceUtil SearchBooking(@PathVariable String iD) {
+        return new ResponceUtil(200, "search", bookingService.searchBookling(iD));
+    }
+
 
 }
