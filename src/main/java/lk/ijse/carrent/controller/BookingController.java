@@ -23,7 +23,7 @@ public class BookingController {
     }
 
     @DeleteMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponceUtil DeleteCustomer(@RequestParam String iD) {
+    public ResponceUtil DeleteBooking(@RequestParam String iD) {
         bookingService.deleteBookling(iD);
         return new ResponceUtil(200, "delete", null);
     }
