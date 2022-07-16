@@ -30,7 +30,7 @@ public class JPAconfig {
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource ds, JpaVendorAdapter va) {
         LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
-        factoryBean.setDataSource((javax.sql.DataSource) ds);
+        factoryBean.setDataSource(ds);
         factoryBean.setJpaVendorAdapter(va);
         factoryBean.setPackagesToScan(environment.getRequiredProperty("entity.package"));
         return factoryBean;

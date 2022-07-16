@@ -22,5 +22,13 @@ public class DriverController {
 
     }
 
+    @DeleteMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponceUtil DeleteDriver(@RequestParam String iD) {
+        driverService.deleteDriver(iD);
+        return new ResponceUtil(200, "delete", null);
+    }
+
+
+
 
 }

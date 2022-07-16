@@ -6,10 +6,14 @@ import lk.ijse.carrent.service.BookingService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.lang.reflect.Type;
 import java.util.List;
 
+@Service
+@Transactional
 public class BookingServiceIMPL implements BookingService {
     @Autowired
     private BookingRepo repo;
