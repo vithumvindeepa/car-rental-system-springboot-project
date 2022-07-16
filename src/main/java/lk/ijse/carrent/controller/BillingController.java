@@ -35,6 +35,11 @@ public class BillingController {
         return new ResponceUtil(200, "update", null);
     }
 
+    @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponceUtil SearchBilling(@PathVariable String iD) {
+        return new ResponceUtil(200, "search", billingService.searchBilling(iD));
+    }
+
 
 
 }
