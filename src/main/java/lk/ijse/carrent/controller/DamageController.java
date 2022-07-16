@@ -39,5 +39,9 @@ public class DamageController {
         return new ResponceUtil(200, "search", damageService.searchDamage(iD));
     }
 
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponceUtil getAllDamage() {
+        return new ResponceUtil(200, "all", damageService.getAllDamage());
+    }
 
 }
