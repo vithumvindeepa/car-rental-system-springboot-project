@@ -1,5 +1,6 @@
 package lk.ijse.carrent.controller;
 
+import lk.ijse.carrent.dto.CustomerDTO;
 import lk.ijse.carrent.dto.EmployeeDTO;
 import lk.ijse.carrent.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +17,8 @@ public class EmployeeController {
     EmployeeService employeeService;
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponceUtil SaveEmployee(EmployeeDTO employeedto) {
-        employeeService.saveEmployee(employeedto);
+    public ResponceUtil SaveEmployee(EmployeeDTO employeeDTO) {
+        employeeService.saveEmployee(employeeDTO);
         return new ResponceUtil(200, "save", null);
 
     }
@@ -28,7 +29,11 @@ public class EmployeeController {
         return new ResponceUtil(200, "delete", null);
     }
 
-
+    @PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponceUtil updateEmployee(@RequestBody EmployeeDTO employeeDTO) {
+        employeeService.updateEmployee(employeeDTO);
+        return new ResponceUtil(200, "update", null);
+    }
 
 
 
