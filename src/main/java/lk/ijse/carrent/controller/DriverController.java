@@ -39,5 +39,9 @@ public class DriverController {
         return new ResponceUtil(200, "search", driverService.searchDriver(iD));
     }
 
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponceUtil getAllDriver() {
+        return new ResponceUtil(200, "all", driverService.getAllDriver());
+    }
 
 }
