@@ -39,6 +39,9 @@ public class VehicleDetailsController {
         return new ResponceUtil(200, "search", vehicleDetailsService.searchVehicleDetails(iD));
     }
 
-
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponceUtil getAllVehicleDetails() {
+        return new ResponceUtil(200, "all", vehicleDetailsService.getAllVehicleDetails());
+    }
 
 }
