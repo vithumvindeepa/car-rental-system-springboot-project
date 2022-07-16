@@ -39,6 +39,9 @@ public class EmployeeController {
         return new ResponceUtil(200, "search", employeeService.searchEmployee(iD));
     }
 
-
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponceUtil getAllEmployee() {
+        return new ResponceUtil(200, "all", employeeService.getAllEmployee());
+    }
 
 }
