@@ -1,5 +1,6 @@
 package lk.ijse.carrent.controller;
 
+import lk.ijse.carrent.dto.CustomerDTO;
 import lk.ijse.carrent.dto.VehicledetailsDTO;
 import lk.ijse.carrent.service.VehicleDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,12 @@ public class VehicleDetailsController {
     public ResponceUtil DeleteVehicleDetails(@RequestParam String iD) {
         vehicleDetailsService.deleteVehicleDetails(iD);
         return new ResponceUtil(200, "delete", null);
+    }
+
+    @PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponceUtil updateVehicleDetails(@RequestBody VehicledetailsDTO vehicledetailsDTO) {
+        vehicleDetailsService.updateVehicleDetails(vehicledetailsDTO);
+        return new ResponceUtil(200, "update", null);
     }
 
 
