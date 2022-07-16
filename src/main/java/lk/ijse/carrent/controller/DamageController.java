@@ -35,6 +35,10 @@ public class DamageController {
         return new ResponceUtil(200, "update", null);
     }
 
+    @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponceUtil SearchDamage(@PathVariable String iD) {
+        return new ResponceUtil(200, "search", damageService.searchDamage(iD));
+    }
 
 
 }
