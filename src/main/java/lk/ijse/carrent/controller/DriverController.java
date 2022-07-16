@@ -1,5 +1,6 @@
 package lk.ijse.carrent.controller;
 
+import lk.ijse.carrent.dto.CustomerDTO;
 import lk.ijse.carrent.dto.DriverDTO;
 import lk.ijse.carrent.service.DriverService;
 import org.springframework.beans.factory.annotation.*;
@@ -16,8 +17,8 @@ public class DriverController {
     DriverService driverService;
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponceUtil SaveDriver(DriverDTO driverdto) {
-        driverService.saveDriver(driverdto);
+    public ResponceUtil SaveDriver(DriverDTO driverDTO) {
+        driverService.saveDriver(driverDTO);
         return new ResponceUtil(200, "save", null);
 
     }
@@ -26,6 +27,12 @@ public class DriverController {
     public ResponceUtil DeleteDriver(@RequestParam String iD) {
         driverService.deleteDriver(iD);
         return new ResponceUtil(200, "delete", null);
+    }
+
+    @PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponceUtil updateDriver(@RequestBody DriverDTO driverDTO) {
+        driverService.updateDriver(driverDTO);
+        return new ResponceUtil(200, "update", null);
     }
 
 
