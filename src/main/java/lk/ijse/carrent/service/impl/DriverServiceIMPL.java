@@ -3,20 +3,22 @@ package lk.ijse.carrent.service.impl;
 import lk.ijse.carrent.dto.DriverDTO;
 import lk.ijse.carrent.entity.Driver;
 import lk.ijse.carrent.repo.DriverRepo;
+import lk.ijse.carrent.service.DriverService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-public class DriverServiceIMPL {
+public class DriverServiceIMPL implements DriverService {
 
     @Autowired
-    private DriverRepo repo;
+     DriverRepo repo;
 
     @Autowired
-    private ModelMapper map;
+     ModelMapper map;
 
+    @Override
     public void saveDriver(DriverDTO dto) {
 
         if (!repo.existsById(dto.getDriverID())) {
@@ -26,6 +28,7 @@ public class DriverServiceIMPL {
         }
     }
 
+    @Override
     public void deleteDriver(String id) {
 
         if (repo.existsById(id)) {
@@ -35,6 +38,7 @@ public class DriverServiceIMPL {
         }
     }
 
+    @Override
     public void updateDriver(DriverDTO dto) {
 
         if (!repo.existsById(dto.getDriverID())) {
@@ -44,6 +48,7 @@ public class DriverServiceIMPL {
         }
     }
 
+    @Override
     public DriverDTO searchDriver(String id) {
 
         if (repo.existsById(id)){
@@ -53,6 +58,7 @@ public class DriverServiceIMPL {
         }
     }
 
+    @Override
     public List<DriverDTO> getAllDriver() {
 
         return map.map(repo.findAll(), new TypeToken<List<DriverDTO>>() {

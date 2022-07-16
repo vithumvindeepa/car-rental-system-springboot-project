@@ -3,13 +3,14 @@ package lk.ijse.carrent.service.impl;
 import lk.ijse.carrent.dto.VehicledetailsDTO;
 import lk.ijse.carrent.entity.Vehicledetails;
 import lk.ijse.carrent.repo.VehicleDetailsRepo;
+import lk.ijse.carrent.service.VehicleDetailsService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-public class VehicleDetailsServiceIMPL {
+public class VehicleDetailsServiceIMPL implements VehicleDetailsService {
 
     @Autowired
     private VehicleDetailsRepo repo;
@@ -17,6 +18,7 @@ public class VehicleDetailsServiceIMPL {
     @Autowired
     private ModelMapper map;
 
+    @Override
     public void saveVehicleDetails(VehicledetailsDTO dto) {
 
         if (!repo.existsById(dto.getVehicleID())) {
@@ -26,6 +28,7 @@ public class VehicleDetailsServiceIMPL {
         }
     }
 
+    @Override
     public void deleteVehicleDetails(String id) {
 
         if (repo.existsById(id)) {
@@ -35,6 +38,7 @@ public class VehicleDetailsServiceIMPL {
         }
     }
 
+    @Override
     public void updateVehicleDetails(VehicledetailsDTO dto) {
 
         if (!repo.existsById(dto.getVehicleID())) {
@@ -44,6 +48,7 @@ public class VehicleDetailsServiceIMPL {
         }
     }
 
+    @Override
     public VehicledetailsDTO searchVehicleDetails(String id) {
 
         if (repo.existsById(id)){
@@ -53,6 +58,7 @@ public class VehicleDetailsServiceIMPL {
         }
     }
 
+    @Override
     public List<VehicledetailsDTO> getAllVehicleDetails() {
 
         return map.map(repo.findAll(), new TypeToken<List<VehicledetailsDTO>>() {

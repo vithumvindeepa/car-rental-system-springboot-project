@@ -3,13 +3,14 @@ package lk.ijse.carrent.service.impl;
 import lk.ijse.carrent.dto.BillingDTO;
 import lk.ijse.carrent.entity.Billing;
 import lk.ijse.carrent.repo.BillingRepo;
+import lk.ijse.carrent.service.BillingService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-public class BillingServicelMPL {
+public class BillingServicelMPL implements BillingService {
 
     @Autowired
     private BillingRepo repo;
@@ -17,6 +18,7 @@ public class BillingServicelMPL {
     @Autowired
     private ModelMapper map;
 
+    @Override
     public void saveBilling(BillingDTO dto) {
 
         if (!repo.existsById(dto.getBillID())) {
@@ -26,6 +28,7 @@ public class BillingServicelMPL {
         }
     }
 
+    @Override
     public void deleteBilling(String id) {
 
         if (repo.existsById(id)) {
@@ -35,6 +38,7 @@ public class BillingServicelMPL {
         }
     }
 
+    @Override
     public void updateBilling(BillingDTO dto) {
 
         if (repo.existsById(dto.getBillID())) {
@@ -44,6 +48,7 @@ public class BillingServicelMPL {
         }
     }
 
+    @Override
     public BillingDTO searchBilling(String id) {
 
         if (repo.existsById(id)){
@@ -53,7 +58,8 @@ public class BillingServicelMPL {
         }
     }
 
-    public List<BillingDTO> getAllBilling() {
+    @Override
+    public List<BillingDTO> getAllBooking() {
 
         return map.map(repo.findAll(), new TypeToken<List<BillingDTO>>() {
         }.getType());

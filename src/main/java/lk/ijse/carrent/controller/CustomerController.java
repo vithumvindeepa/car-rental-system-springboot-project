@@ -23,16 +23,22 @@ CustomerService customerService;
 
     }
 
+    @DeleteMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponceUtil DeleteCustomer(@RequestParam String iD) {
+        customerService.deleteCustomer(iD);
+        return new ResponceUtil(200, "delete", null);
+    }
+
     @PutMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponceUtil updateCustomer(@RequestBody CustomerDTO customerdto) {
         customerService.updateCustomer(customerdto);
         return new ResponceUtil(200, "update", null);
     }
 
-    @DeleteMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponceUtil DeleteCustomer(@RequestParam String iD) {
-        customerService.deleteCustomer(iD);
-        return new ResponceUtil(200, "delete", null);
+
+    @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponceUtil SearchCustomer(@PathVariable String iD) {
+        return new ResponceUtil(200, "search", customerService.searchCustomer(iD));
     }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
@@ -41,9 +47,6 @@ CustomerService customerService;
         return new ResponceUtil(200, "all", customerService.getAllCustomer());
     }
 
-    @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponceUtil SearchCustomer(@PathVariable String iD) {
-        return new ResponceUtil(200, "search", customerService.searchCustomer(iD));
-    }
+
 
 }

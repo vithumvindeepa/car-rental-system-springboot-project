@@ -2,6 +2,7 @@ package lk.ijse.carrent.service.impl;
 import lk.ijse.carrent.dto.BookingDTO;
 import lk.ijse.carrent.entity.Booking;
 import lk.ijse.carrent.repo.BookingRepo;
+import lk.ijse.carrent.service.BookingService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,14 +10,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.lang.reflect.Type;
 import java.util.List;
 
-public class BookingServiceIMPL {
+public class BookingServiceIMPL implements BookingService {
     @Autowired
     private BookingRepo repo;
 
     @Autowired
     private ModelMapper map;
 
-    public void saveBooking(BookingDTO dto) {
+    @Override
+    public void saveBookling(BookingDTO dto) {
 
         if (!repo.existsById(dto.getBookingID())) {
             repo.save(map.map(dto, Booking.class));
@@ -25,7 +27,8 @@ public class BookingServiceIMPL {
         }
     }
 
-    public void deleteBooking(String id) {
+    @Override
+    public void deleteBookling(String id) {
 
         if (repo.existsById(id)) {
             repo.deleteById(id);
@@ -34,7 +37,8 @@ public class BookingServiceIMPL {
         }
     }
 
-    public void updateBooking(BookingDTO dto) {
+    @Override
+    public void updateBookling(BookingDTO dto) {
 
         if (!repo.existsById(dto.getBookingID())) {
             repo.save(map.map(dto, Booking.class));
@@ -43,7 +47,8 @@ public class BookingServiceIMPL {
         }
     }
 
-    public BookingDTO searchBooking(String id) {
+    @Override
+    public BookingDTO searchBookling(String id) {
 
         if (repo.existsById(id)){
             return map.map(repo.findById(id).get(), (Type) BookingDTO.class);
@@ -52,7 +57,8 @@ public class BookingServiceIMPL {
         }
     }
 
-    public List<BookingDTO> getAllBooking() {
+    @Override
+    public List<BookingDTO> getAllBookling() {
 
         return map.map(repo.findAll(), new TypeToken<List<BookingDTO>>() {
         }.getType());

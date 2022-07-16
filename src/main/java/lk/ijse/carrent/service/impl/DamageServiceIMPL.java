@@ -3,13 +3,14 @@ package lk.ijse.carrent.service.impl;
 import lk.ijse.carrent.dto.DamageDTO;
 import lk.ijse.carrent.entity.Damage;
 import lk.ijse.carrent.repo.DamageRepo;
+import lk.ijse.carrent.service.DamageService;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-public class DamageServiceIMPL {
+public class DamageServiceIMPL implements DamageService {
 
     @Autowired
     private DamageRepo repo;
@@ -17,6 +18,7 @@ public class DamageServiceIMPL {
     @Autowired
     private ModelMapper map;
 
+    @Override
     public void saveDamage(DamageDTO dto) {
 
         if (!repo.existsById(dto.getDamageID())) {
@@ -26,6 +28,7 @@ public class DamageServiceIMPL {
         }
     }
 
+    @Override
     public void deleteDamage(String id) {
 
         if (repo.existsById(id)) {
@@ -35,6 +38,7 @@ public class DamageServiceIMPL {
         }
     }
 
+    @Override
     public void updateDamage(DamageDTO dto) {
 
         if (!repo.existsById(dto.getDamageID())) {
@@ -44,6 +48,7 @@ public class DamageServiceIMPL {
         }
     }
 
+    @Override
     public DamageDTO searchDamage(String id) {
 
         if (repo.existsById(id)){
@@ -53,6 +58,7 @@ public class DamageServiceIMPL {
         }
     }
 
+    @Override
     public List<DamageDTO> getAllDamage() {
 
         return map.map(repo.findAll(), new TypeToken<List<DamageDTO>>() {

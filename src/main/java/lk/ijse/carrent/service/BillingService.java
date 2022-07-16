@@ -10,7 +10,7 @@ public interface BillingService {
 
     void deleteBilling(String id);
 
-    void updateBilling(String dto);
+    void updateBilling(BillingDTO dto);
 
     BillingDTO searchBilling(String id);
 

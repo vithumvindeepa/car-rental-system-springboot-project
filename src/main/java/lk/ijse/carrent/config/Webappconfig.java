@@ -17,8 +17,5 @@ public class Webappconfig {
     public ModelMapper modelMapper(){
         return new ModelMapper();
   }
-    /*@Bean
-    public MultipartResolver multipartResolver(){
-        return new StandardServletMultipartResolver();
-    }*/
+
 }

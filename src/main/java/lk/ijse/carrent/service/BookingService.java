@@ -10,7 +10,7 @@ public interface BookingService {
 
     void deleteBookling(String id);
 
-    void updateBookling(String dto);
+    void updateBookling(BookingDTO dto);
 
     BookingDTO searchBookling(String id);
 

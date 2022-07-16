@@ -10,7 +10,7 @@ public interface DamageService {
 
     void deleteDamage(String id);
 
-    void updateDamage(String dto);
+    void updateDamage(DamageDTO dto);
 
     DamageDTO searchDamage(String id);
 

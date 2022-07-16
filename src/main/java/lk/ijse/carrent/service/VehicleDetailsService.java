@@ -10,7 +10,7 @@ public interface VehicleDetailsService {
 
     void deleteVehicleDetails(String id);
 
-    void updateVehicleDetails(String dto);
+    void updateVehicleDetails(VehicledetailsDTO dto);
 
     VehicledetailsDTO searchVehicleDetails(String id);
 
