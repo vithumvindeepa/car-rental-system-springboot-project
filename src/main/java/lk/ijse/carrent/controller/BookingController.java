@@ -1,8 +1,7 @@
 package lk.ijse.carrent.controller;
 
 import lk.ijse.carrent.dto.BookingDTO;
-import lk.ijse.carrent.dto.CustomerDTO;
-import lk.ijse.carrent.service.BillingService;
+import lk.ijse.carrent.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -17,11 +16,11 @@ import util.ResponceUtil;
 
 public class BookingController {
     @Autowired
-    BillingService bookingService;
+    BookingService bookingService;
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponceUtil SaveBooking(BookingDTO bookingdto) {
-        billingService.saveBooking(bookingdto);
+        bookingService.saveBookling(bookingdto);
         return new ResponceUtil(200, "save", null);
 
     }
