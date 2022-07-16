@@ -5,10 +5,7 @@ import lk.ijse.carrent.dto.VehicledetailsDTO;
 import lk.ijse.carrent.service.VehicleDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import util.ResponceUtil;
 
 @RestController
@@ -26,7 +23,11 @@ public class VehicleDetailsController {
 
     }
 
-
+    @DeleteMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponceUtil DeleteVehicleDetails(@RequestParam String iD) {
+        vehicleDetailsService.deleteVehicleDetails(iD);
+        return new ResponceUtil(200, "delete", null);
+    }
 
 
 
