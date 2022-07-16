@@ -1,6 +1,5 @@
 package lk.ijse.carrent.controller;
 
-import lk.ijse.carrent.dto.CustomerDTO;
 import lk.ijse.carrent.dto.VehicledetailsDTO;
 import lk.ijse.carrent.service.VehicleDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
