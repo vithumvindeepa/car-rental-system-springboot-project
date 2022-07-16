@@ -39,5 +39,9 @@ public class BookingController {
         return new ResponceUtil(200, "search", bookingService.searchBookling(iD));
     }
 
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponceUtil getAllBooking() {
+        return new ResponceUtil(200, "all", bookingService.getAllBookling());
+    }
 
 }
