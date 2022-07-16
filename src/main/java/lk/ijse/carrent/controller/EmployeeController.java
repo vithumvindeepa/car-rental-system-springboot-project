@@ -35,6 +35,11 @@ public class EmployeeController {
         return new ResponceUtil(200, "update", null);
     }
 
+    @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponceUtil SearchEmployee(@PathVariable String iD) {
+        return new ResponceUtil(200, "search", employeeService.searchEmployee(iD));
+    }
+
 
 
 }
