@@ -14,6 +14,6 @@ public interface BillingService {
 
     BillingDTO searchBilling(String id);
 
-    List<BillingDTO> getAllBooking();
+    List<BillingDTO> getAllBilling();
 
 }

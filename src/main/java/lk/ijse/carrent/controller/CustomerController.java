@@ -43,7 +43,6 @@ CustomerService customerService;
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponceUtil getAllCustomer() {
-        System.out.println("dulanjana");
         return new ResponceUtil(200, "all", customerService.getAllCustomer());
     }
 

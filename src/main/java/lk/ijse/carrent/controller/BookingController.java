@@ -1,7 +1,6 @@
 package lk.ijse.carrent.controller;
 
 import lk.ijse.carrent.dto.BookingDTO;
-import lk.ijse.carrent.dto.CustomerDTO;
 import lk.ijse.carrent.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;

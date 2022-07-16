@@ -1,7 +1,6 @@
 package lk.ijse.carrent.controller;
 
 import lk.ijse.carrent.dto.BillingDTO;
-import lk.ijse.carrent.dto.CustomerDTO;
 import lk.ijse.carrent.service.BillingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -40,6 +39,9 @@ public class BillingController {
         return new ResponceUtil(200, "search", billingService.searchBilling(iD));
     }
 
-
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponceUtil getAllBilling() {
+        return new ResponceUtil(200, "all", billingService.getAllBilling());
+    }
 
 }
